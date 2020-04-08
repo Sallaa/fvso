@@ -1,25 +1,89 @@
 @charset "utf-8";
 @import "../bulma/bulma.sass";
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,500,600|Inria+Sans:400,700&display=swap");
+/* ---- defaults ---- */
+$plex: "IBM Plex Sans", sans-serif;
+$inria: "Inria Sans", sans-serif;
 
-
-$plex: 'IBM Plex Sans', sans-serif !important;
 $family-sans-serif: $plex;
+$side-left-pad: 45px;
+$primary: #db4500;
+$primary-light: #f0b499;
+$gray: #4a4a4a;
+$light-gray: #999ba7;
 
-
-/* ----defaults---- */
 body {
-    font-family: $plex;
     padding: 0;
     margin: 0;
 }
 
+p {
+    font-family: $plex;
+}
+/* ---- base styles---- */
+.top {
+    width: 100%;
+    height: 100px;
+    font-family: $plex;
+    /*    border: 1px solid yellow;*/
+    padding: 20px $side-left-pad;
+    .logo {
+        font-size: 27px;
+        letter-spacing: 7px;
+        font-weight: 600;
+        display: inline-block;
+    }
+    .slogan {
+        font-size: 12px;
+        letter-spacing: 0.5px;
+        display: inline-block;
+        font-weight: 500;
+    }
+}
+.outer {
+    display: flex;
+    /*    white-space: nowrap;*/
+}
+
+.main-content {
+    /*  border: 1px solid orange;*/
+    min-height: calc(90vh - 100px);
+    width: 90%;
+}
+.nav {
+    width: 10%;
+    font-family: $inria;
+    /*    border: 1px solid blue;*/
+    ul {
+        padding-left: $side-left-pad;
+        li {
+            padding: 5px 10px;
+            margin: 10px 0;
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        li:hover,
+        li.active {
+            border-left: 2px solid #db4500;
+            font-weight: 700;
+            color: #db4500;
+        }
+    }
+}
+.f {
+    min-height: calc(100vh-100px-90vh);
+    padding-left: $side-left-pad;
+    img {
+        width: 100px;
+    }
+}
 .content-margins {
     max-width: 1100px;
     margin: 0 auto;
     position: relative;
-    width: 85%;
-    @media screen and (max-width: 960px){
+    width: 70%;
+    @media screen and (max-width: 960px) {
         width: 95%;
     }
 }
@@ -29,34 +93,96 @@ input:focus {
 }
 
 /* ----home page styles----*/
-.section {
-    min-height: 100vh;
-}
+#home {
+    .search__area {
+        margin: 0 auto;
+        margin-top: 100px;
+        width: 100%;
+        input {
+            /* margin: 0 auto;*/
+            text-align: center;
+            width: 100%;
+            padding: 12px;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid $primary-light;
+            letter-spacing: 0.5px;
+            color: #999ba7 !important;
+            font-weight: 400;
+            font-size: 22px;
+        }
+        input:focus {
+            border-bottom: 2px solid $primary-light;
+        }
 
-.search__area {
-    text-align: center;
-    input {
-       /* margin: 0 auto;*/
-        text-align: center; 
-        padding: 10px;
-        width: 70%;
-        background: transparent;
-        border: none;
-        border-bottom: 2px solid #3C91E6;
+        input::placeholder {
+            color: $light-gray;
+        }
+
+        .search-icon {
+            margin-left: -30px;
+            color: $light-gray;
+        }
     }
-    input:focus {
-        border-bottom: 2px solid #3784D2
+
+    .suggested__area {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 30px;
+        p {
+            font-family: $inria;
+            font-size: 12px;
+            color: #c5ccd2;
+        }
+        .tags {
+            .tag {
+                background-color: white;
+                border: 1px solid $primary-light !important;
+                color: $primary-light;
+            }
+            .tag:hover {
+                cursor: pointer;
+            }
+        }
+        .tags:not(:last-child) {
+            margin-bottom: 0 !important;
+            margin-right: 1rem !important;
+        }
+    }
+
+    .faq {
+        margin-top: 75px;
+        display: flex;
+        color: $light-gray !important;
+        .block {
+            width: 50%;
+            text-align: center;
+            .q {
+                font-family: $inria !important;
+                margin-bottom: 6px;
+
+            }
+
+            .answer {
+                font-size: 13px;
+
+            }
+        }
     }
 }
-
 
 /*
+
 @import "../bulma/sass/utilities/_all.sass";
 @import "../bulma/sass/base/_all.sass";
+@import "../bulma/sass/form/_all.sass";
+
 @import "../bulma/sass/elements/button.sass";
 @import "../bulma/sass/elements/container.sass";
 @import "../bulma/sass/elements/title.sass";
-@import "../bulma/sass/form/_all.sass";
+
 @import "../bulma/sass/components/navbar.sass";
 @import "../bulma/sass/layout/hero.sass";
 @import "../bulma/sass/layout/section.sass";*/

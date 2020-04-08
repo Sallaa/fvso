@@ -1,18 +1,48 @@
 {% block content %}
 {% include 'partials/base.html' %}
-{% include 'partials/navbar.html' %}
+{% set active_page = "index" %}
 
 
+<div class="outer">
+   {% include 'partials/navbar.html' %}
 
-<div id="home" class="section">
-    <div class="content-margins">
+   <div id="home" class="main-content">
+      <div class="content-margins">
 
-        <div class="search__area">
+         <div class="search__area">
             <form name="search">
-                <input name="url" type="text" placeholder="find your article or topic">
+               <input name="url" type="text" placeholder="find your article or topic">
+               <i class="fas fa-search search-icon"></i>
             </form>
-        </div>
-    </div>
+         </div>
+
+         <div class="suggested__area">
+            <div class="tags">
+               <span class="tag">Democracy</span>
+               <span class="tag">Coronavirus</span>
+               <span class="tag">Eurovision</span>
+               <span class="tag">Comic Sans</span>
+               <span class="tag">Epidemiology</span>
+            </div>
+            <p>Popular Topics</p>
+         </div>
+
+
+         <div class="faq">
+
+            <div class="block">
+                <p class="q">How does this work?</p>
+                <p class="answer">I always felt like I could do anything. That’s the main thing people are controlled by! Thoughts- their perception of themselves! They're slowed down by their perception of themselves. If you're taught you can’t do anything, you won’t do anything. I was taught I could do everything.</p>
+            </div>
+
+            <div class="block">
+                <p class="q">What was the inspiration?</p>
+                <p class="answer">I always felt like I could do anything. That’s the main thing people are controlled by! Thoughts- their perception of themselves! They're slowed down by their perception of themselves. If you're taught you can’t do anything, you won’t do anything. I was taught I could do everything.</p>
+            </div>
+         </div>
+      </div>
+   </div>
+
 </div>
 
 {% include 'partials/footer.html' %}
