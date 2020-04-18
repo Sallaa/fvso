@@ -1,0 +1,41 @@
+{% block content %}
+{% include 'partials/base.html' %}
+{% set active_page = "index" %}
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+<div class="outer">
+   {% include 'partials/navbar.html' %}
+
+   <div id="article-page" class="main-content">
+      <div class="content-margins">
+
+        <div class="header">
+          <img class="article__image" src="{{ data.img }}">
+          <h1 class="article__title">{{ data.title }}</h1>
+         
+        </div>
+
+        <div class="about">
+          <p>Written by 
+            {% for author in data.author %}
+              <span>{{ author }} |</span>
+            {% endfor %}
+          </p>
+          <a class="src" href="{{ url }}">Original Source</a>
+        </div>
+      </div>
+   </div>
+
+</div>
+
+{% include 'partials/footer.html' %}
+{% endblock %}

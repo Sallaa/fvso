@@ -2,6 +2,15 @@
 {% include 'partials/base.html' %}
 {% set active_page = "index" %}
 
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
 
 <div class="outer">
    {% include 'partials/navbar.html' %}
@@ -10,8 +19,8 @@
       <div class="content-margins">
 
          <div class="search__area">
-            <form name="search">
-               <input name="url" type="text" placeholder="find your article or topic">
+            <form name="search__form" action="/search" method="POST">
+               {{ form.search(class='', placeholder='find your article or topic')}}
                <i class="fas fa-search search-icon"></i>
             </form>
          </div>
@@ -28,8 +37,7 @@
          </div>
 
 
-         <div class="faq">
-
+        <!-- <div class="faq">
             <div class="block">
                 <p class="q">How does this work?</p>
                 <p class="answer">I always felt like I could do anything. That’s the main thing people are controlled by! Thoughts- their perception of themselves! They're slowed down by their perception of themselves. If you're taught you can’t do anything, you won’t do anything. I was taught I could do everything.</p>
@@ -39,7 +47,7 @@
                 <p class="q">What was the inspiration?</p>
                 <p class="answer">I always felt like I could do anything. That’s the main thing people are controlled by! Thoughts- their perception of themselves! They're slowed down by their perception of themselves. If you're taught you can’t do anything, you won’t do anything. I was taught I could do everything.</p>
             </div>
-         </div>
+         </div> -->
       </div>
    </div>
 
