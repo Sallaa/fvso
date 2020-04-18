@@ -25,11 +25,13 @@
         </div>
 
         <div class="about">
-          <p>Written by 
+          <p><span class="has-text-weight-semibold">Written By:</span> &nbsp;&nbsp;
             {% for author in data.author %}
               <span>{{ author }} |</span>
-            {% endfor %}
+            {% endfor %} @
           </p>
+          <p><span class="has-text-weight-semibold">Date:</span> &nbsp;&nbsp;{{ data.date }}</p>
+          <p><span class="has-text-weight-semibold">Org:</span>&nbsp;&nbsp; {{ org }}</p>
           <a class="src" href="{{ url }}">Original Source</a>
         </div>
       </div>

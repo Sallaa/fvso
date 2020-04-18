@@ -4,6 +4,7 @@ from . import controllers as controller
 from app import app
 from .forms import SearchForm
 from validator_collection import checkers, errors
+from urllib.parse import urlsplit
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -17,8 +18,9 @@ def search():
         query = request.form['search']
 
         if checkers.is_url(query):
+            u = urlsplit(query).netloc
             data = controller.parse_url(query)
-            return render_template('analysis.html', url=query, data=data)
+            return render_template('analysis.html', org=u, url=query, data=data)
         else:
             flash('not url')
             return redirect('/')
