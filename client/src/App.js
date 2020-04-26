@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import './App.sass';
 function App() {
 
     const [currentTime,
@@ -33,6 +33,11 @@ function App() {
                     Learn React
                 </a>
             </header>
+            {/* Sass example */}
+            <div className="buttons">
+                <a className="button is-primary">Primary</a>
+                <a className="button is-link">Link</a>
+            </div>
         </div>
     );
 }
